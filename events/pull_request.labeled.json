@@ -1,0 +1,20 @@
+{
+  "action": "labeled",
+  "number": 451,
+  "pull_request": {
+    "draft": true,
+    "state": "open",
+    "assignee": {
+      "login": "fahrenheit"
+    },
+    "head": {
+      "ref": "feature/451",
+      "sha": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+    },
+    "labels": [
+      {
+        "name": "bug"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+--container-architecture=linux/amd64
+--action-offline-mode
+--secret-file .secrets
+--env-file .env

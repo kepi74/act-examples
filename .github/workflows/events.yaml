@@ -1,0 +1,61 @@
+name: "Events Workflow"
+
+on:
+  push:
+  pull_request:
+    types:
+      - opened
+      - labeled
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  push-job:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: "Push Job"
+        run: |
+          echo "██████╗ ██╗   ██╗███████╗██╗  ██╗"
+          echo "██╔══██╗██║   ██║██╔════╝██║  ██║"
+          echo "██████╔╝██║   ██║███████╗███████║"
+          echo "██╔═══╝ ██║   ██║╚════██║██╔══██║"
+          echo "██║     ╚██████╔╝███████║██║  ██║"
+          echo "╚═╝      ╚═════╝ ╚══════╝╚═╝  ╚═╝"
+      - name: "Ref"
+        run: |
+          echo "Ref: ${{ github.ref }}"
+      - name: "Secret"
+        run: |
+          echo "API_TOKEN: ${{ secrets.API_TOKEN }}"
+      - name: "Env"
+        run: |
+          echo "ACTION: ${{ env.ACTION }}"
+  pull-request-job:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: "Pull Request Job"
+        run: |
+          echo "██████╗ ██╗   ██╗██╗     ██╗     "
+          echo "██╔══██╗██║   ██║██║     ██║     "
+          echo "██████╔╝██║   ██║██║     ██║     "
+          echo "██╔═══╝ ██║   ██║██║     ██║     "
+          echo "██║     ╚██████╔╝███████╗███████╗"
+          echo "╚═╝      ╚═════╝ ╚══════╝╚══════╝"
+      - name: "Assignee/Ref"
+        run: |
+          echo "Assignee: ${{ github.event.pull_request.assignee.login }}"
+          echo "Ref: ${{ github.event.pull_request.head.ref }}"
+  schedule-job:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    steps:
+      - name: "Scheduled Job"
+        run: |
+          echo "███████╗ ██████╗██╗  ██╗███████╗██████╗ ██╗   ██╗██╗     ███████╗██████╗ "
+          echo "██╔════╝██╔════╝██║  ██║██╔════╝██╔══██╗██║   ██║██║     ██╔════╝██╔══██╗"
+          echo "███████╗██║     ███████║█████╗  ██║  ██║██║   ██║██║     █████╗  ██║  ██║"
+          echo "╚════██║██║     ██╔══██║██╔══╝  ██║  ██║██║   ██║██║     ██╔══╝  ██║  ██║"
+          echo "███████║╚██████╗██║  ██║███████╗██████╔╝╚██████╔╝███████╗███████╗██████╔╝"
+          echo "╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚═════╝ "
